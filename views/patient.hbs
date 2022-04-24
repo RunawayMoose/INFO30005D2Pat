@@ -1,0 +1,50 @@
+<h3>Hi {{username}}</h3>
+<form action="/patient" , method="post">
+    <fieldset>
+        <legend>Record here</legend>
+        <table id='regDetails'>
+            <tr>
+                <td><label for='nameInput'>Blood Glucose Level</label></td>
+                <td><input type='number' name='bloodGlucoseLevel' /></td>
+            </tr>
+            <tr>
+                <td><label for='ageInput'>Weight</label></td>
+                <td><input type='number' name='weight' /></td>
+            </tr>
+            <tr>
+                <td><label for='ageInput'>Doses Insulin Taken</label></td>
+                <td><input type='number' name='dosesInsulinTaken' /></td>
+            </tr>
+            <tr>
+                <td><label for='ageInput'>exercise</label></td>
+                <td><input type='number' name='exercise' /></td>
+            </tr>
+            <tr>
+                <td><label for='ageInput'>message</label></td>
+                <td><input type='text' name='message' /></td>
+            </tr>
+            <tr>
+                <td colspan='2'><input type='submit' id='submitButton' /></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+
+<table style="margin-top: 2rem;">
+    <tr>
+        <th>BloodGlucoseLevel</th>
+        <th>Weight</th>
+        <th>DosesInsulinTaken</th>
+        <th>Exercise</th>
+        <th>Message</th>
+    </tr>
+    {{#each records}}
+    <tr>
+        <td>{{this.bloodGlucoseLevel}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.dosesInsulinTaken}}</td>
+        <td>{{this.exercise}}</td>
+        <td>{{this.message}}</td>
+    </tr>
+    {{/each}}
+</table>
