@@ -5,10 +5,10 @@ const exphbs = require("express-handlebars")
 
 //routes directions
 const auth = require('./routes/auth');
-const patient = require('./routes/patient')
+const patient = require('./routes/patient');
 
 const app = express()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json()) 
 app.use(express.urlencoded({ extended: false })) 
@@ -24,7 +24,7 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs'); 
 
 app.use('/auth', auth); //interact with auth
-app.use('/patient', patient)
+app.use('/patient', patient);
 
 app.get('/', (req, res) => {  // /only means index page, direct straight to the login page
     res.redirect('/login');
@@ -38,8 +38,13 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
+app.get('/success', (req, res)=>{
+    res.render('success');
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+});
+
+app.use(express.static('public'));
 
